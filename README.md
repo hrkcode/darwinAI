@@ -25,9 +25,9 @@ A função também fixa o prompt do Darwin, limita o histórico e o tamanho das 
 
 ## Deploy no Netlify
 
-1. No Netlify, **Add new site → Import an existing project** e escolha este repositório.
+1. No Netlify, **Add new project → Import an existing project** e escolha este repositório.
 2. As configurações de build são lidas do `netlify.toml`, então não precisa preencher nada.
-3. Em **Site configuration → Environment variables**, crie `OPENAI_API_KEY` com a sua chave.
+3. Em **Project configuration → Environment variables**, crie `OPENAI_API_KEY` com a sua chave.
    Opcional: `OPENAI_MODEL` para trocar o modelo (padrão: `gpt-4o-mini`).
 4. Faça um novo deploy.
 
