@@ -1,0 +1,10 @@
+# Segredos — nunca versionar
+.env
+.env.*
+!.env.example
+
+# Lixo de sistema
+__MACOSX/
+._*
+.DS_Store
+Thumbs.db
