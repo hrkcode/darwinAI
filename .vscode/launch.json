@@ -1,7 +1,4 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
@@ -9,15 +6,7 @@
             "port": 9222,
             "request": "attach",
             "type": "chrome",
-            "webRoot": "${workspaceFolder}"
-        },
-
-        {
-            "name": "PowerShell: Launch Current File",
-            "type": "PowerShell",
-            "request": "launch",
-            "script": "${file}",
-            "args": []
+            "webRoot": "${workspaceFolder}/public"
         }
     ]
 }

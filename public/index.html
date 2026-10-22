@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Darwin.AI - Seu professor de história on-line</title>
+</head>
+<body>
+    <main>
+        <img src="darwinicon.png" alt="Ícone do Darwin" class="darwin-icon">
+        <header>
+            <h1 class="title-label">Darwin.AI - Seu professor de história on-line</h1>
+            <p class="subtitle-label">Faça uma pergunta sobre história e receba uma resposta detalhada!</p>
+        </header>
+        <section id="historic" aria-live="polite" aria-label="Conversa com o Darwin"></section>
+        <button id="btn-clear" type="button">Limpar conversa</button>
+        <form class="box-question" id="message-form">
+            <label for="message-input" class="visually-hidden">Sua pergunta sobre história</label>
+            <input type="text" placeholder="Digite sua pergunta..." id="message-input" autocomplete="off" maxlength="2000">
+            <button id="btn-submit" type="submit">Enviar</button>
+        </form>
+        <footer>
+            Desenvolvido por Henrique Viana. 2026
+        </footer>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js" integrity="sha384-/TQbtLCAerC3jgaim+N78RZSDYV7ryeoBCVqTuzRrFec2akfBkHS7ACQ3PQhvMVi" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js" integrity="sha384-+VfUPEb0PdtChMwmBcBmykRMDd+v6D/oFmB3rZM/puCMDYcIvF968OimRh4KQY9a" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>

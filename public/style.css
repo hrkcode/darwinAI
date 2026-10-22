@@ -59,6 +59,19 @@ header{
     padding: 1rem;
     margin: 0;
     text-align: center;
+    font-size: inherit;
+}
+
+.visually-hidden{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 #message-input{
@@ -98,7 +111,7 @@ input:focus{
     font-size: 1rem;
     margin-bottom: 10px;
     box-shadow: var(--shadow);
-}   
+}
 
 #btn-submit:disabled{
     cursor: not-allowed;
@@ -136,14 +149,32 @@ input:focus{
     box-shadow: var(--shadow);
 }
 
-#historic > p{
-    max-width: 70%;
+#historic > .message{
+    max-width: 80%;
     padding: 1rem;
     margin: 0.5rem;
     border-radius: 24px;
     color: #0c0c0c;
     overflow-wrap: break-word;
+    line-height: 1.4;
+}
+
+#historic > .my-message{
     white-space: pre-wrap;
+    color: var(--gray3);
+}
+
+.chat-message > :first-child{
+    margin-top: 0;
+}
+
+.chat-message > :last-child{
+    margin-bottom: 0;
+}
+
+.chat-message ul,
+.chat-message ol{
+    padding-left: 1.25rem;
 }
 
 .chat-message{
@@ -155,10 +186,6 @@ input:focus{
     align-self: flex-end;
     background-color: var(--baby-blue);
     text-align: right;
-}
-
-#historic > p.my-message{
-    color: var(--white);
 }
 
 .subtitle-label{
