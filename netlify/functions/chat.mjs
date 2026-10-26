@@ -1,5 +1,3 @@
-// Proxy entre o navegador e a OpenAI: a API key fica só aqui no servidor.
-
 const SYSTEM_PROMPT = "Você é Darwin, um professor de história didático e paciente. Responda apenas perguntas relacionadas à história. Se a pergunta fugir do tema, explique educadamente que só pode responder assuntos históricos. Use linguagem clara para estudantes.";
 
 const MAX_MESSAGES = 20;
@@ -24,7 +22,6 @@ export default async (req) => {
         return jsonError('Requisição inválida.', 400);
     }
 
-    // Só aceita mensagens de usuário/assistente; o prompt do sistema é sempre o do servidor.
     const history = (Array.isArray(body?.messages) ? body.messages : [])
         .filter(m => (m?.role === 'user' || m?.role === 'assistant') && typeof m.content === 'string')
         .slice(-MAX_MESSAGES)
@@ -69,7 +66,6 @@ export default async (req) => {
 
 export const config = {
     path: '/api/chat',
-    // Limita cada IP a 20 perguntas por minuto para evitar abuso da sua conta.
     rateLimit: {
         windowLimit: 20,
         windowSize: 60,
@@ -77,7 +73,6 @@ export const config = {
     }
 };
 
-// Converte o stream SSE da OpenAI em texto puro, só com o conteúdo da resposta.
 function sseToText(){
     let buffer = '';
 
@@ -96,9 +91,7 @@ function sseToText(){
                 try {
                     const text = JSON.parse(payload).choices?.[0]?.delta?.content;
                     if(text) controller.enqueue(text);
-                } catch {
-                    // Linha incompleta ou malformada: ignora.
-                }
+                } catch {}
             }
         }
     });

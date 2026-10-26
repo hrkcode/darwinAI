@@ -1,4 +1,3 @@
-// Quantas mensagens anteriores vão junto em cada pergunta (controla custo e tamanho do contexto).
 const MAX_HISTORY = 20;
 
 const conversationHistory = [];
@@ -24,7 +23,6 @@ function addMessage(message, className){
     return bubble;
 }
 
-// Converte o markdown da resposta em HTML seguro; sem as bibliotecas, mostra texto puro.
 function renderMarkdown(element, text){
     if(window.marked && window.DOMPurify){
         element.innerHTML = DOMPurify.sanitize(marked.parse(text));
@@ -65,7 +63,6 @@ async function sendMessage(){
             throw new Error(data.error || 'Erro ao obter resposta.');
         }
 
-        // A resposta chega aos pedaços; vamos mostrando conforme é gerada.
         const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
 
         while(true){
@@ -84,7 +81,6 @@ async function sendMessage(){
         conversationHistory.push({ role: "assistant", content: answer });
         conversationHistory.splice(0, conversationHistory.length - MAX_HISTORY);
     } catch(e) {
-        // Remove a pergunta sem resposta para não deixar o histórico inconsistente.
         conversationHistory.pop();
         answerMessage.textContent = `Erro: ${e.message}`;
     } finally {
